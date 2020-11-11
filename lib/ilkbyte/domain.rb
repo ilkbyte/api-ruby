@@ -4,10 +4,7 @@ module Ilkbyte
       request("/domain/list")
     end
 
-    def create(domain)
-      query = {
-        "domain" => domain
-      }
+    def create(query)
       request("/domain/create",query)
     end
 
