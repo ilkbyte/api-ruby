@@ -61,7 +61,11 @@ Ilkbyte::Server.new.ipLogs(server_name)
 ### Domain
 ```ruby
 Ilkbyte::Domain.new.all
-Ilkbyte::Domain.new.create("your-domain-name")
+Ilkbyte::Domain.new.create({
+    "server" => @server_name,
+    "domain" => @domain,
+    "ipv6" => ipv6
+    })
 Ilkbyte::Domain.new.show("your-domain-name")
 Ilkbyte::Domain.new.add("your-domain-name",{
     "record_name" => @record_name,
