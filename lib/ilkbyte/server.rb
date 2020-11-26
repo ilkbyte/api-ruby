@@ -44,5 +44,13 @@ module Ilkbyte
     def ipLogs(server_name)
       request("/server/manage/#{server_name}/ip/logs")
     end
+
+    def backup(server_name)
+      request("/server/manage/#{server_name}/backup")
+    end
+
+    def backupRestore(server_name,query)
+      request("/server/manage/#{server_name}/backup/restore",query)
+    end
   end   
 end
