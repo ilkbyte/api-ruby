@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ilkbyte (0.1.1)
+    ilkbyte (0.2.0)
       bundler
       httpclient (~> 2.8)
       rake (~> 12.0)
