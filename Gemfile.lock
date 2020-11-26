@@ -1,10 +1,10 @@
 PATH
   remote: .
   specs:
-    ilkbyte (0.1.0)
+    ilkbyte (0.1.1)
       bundler
-      httpclient
-      rake
+      httpclient (~> 2.8)
+      rake (~> 12.0)
 
 GEM
   remote: https://rubygems.org/
