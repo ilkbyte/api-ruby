@@ -3,5 +3,9 @@ module Ilkbyte
     def account()
       request("/account")
     end
+
+    def accountUsers()
+      request("/account/users")
+    end
   end
 end

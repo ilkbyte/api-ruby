@@ -38,6 +38,11 @@ end
 ```
 
 ## Functions Usage
+### Account
+```ruby
+Ilkbyte::Account.new.account
+Ilkbyte::Account.new.accountUsers
+```
 ### Server
 ```ruby
 Ilkbyte::Server.new.create
