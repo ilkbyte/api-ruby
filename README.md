@@ -38,6 +38,11 @@ end
 ```
 
 ## Functions Usage
+### Account
+```ruby
+Ilkbyte::Account.new.account
+Ilkbyte::Account.new.accountUsers
+```
 ### Server
 ```ruby
 Ilkbyte::Server.new.create
@@ -57,6 +62,33 @@ Ilkbyte::Server.new.power(server_name,"shutdown")
 Ilkbyte::Server.new.ip(server_name)
 Ilkbyte::Server.new.ipRdns(server_name, "127.0.0.1", "test.ni.net.tr")
 Ilkbyte::Server.new.ipLogs(server_name)
+Ilkbyte::Server.new.backup(server_name)
+Ilkbyte::Server.new.backupRestore(server_name,{
+    "backup_name" => @backup_name
+})
+
+Ilkbyte::Server.new.snapshot(server_name)
+Ilkbyte::Server.new.snapshotCreate(server_name,{
+    "name" => @name
+})
+Ilkbyte::Server.new.snapshotRevert(server_name,{
+    "name" => @name
+})
+Ilkbyte::Server.new.snapshotUpdate(server_name,{
+    "name" => @name
+})
+Ilkbyte::Server.new.snapshotDelete(server_name,{
+    "name" => @name
+})
+Ilkbyte::Server.new.snapshotCronAdd(server_name,{
+    "name" => @name,
+    "day" => @day,
+    "hour" => @hour,
+    "min" => @min
+})
+Ilkbyte::Server.new.snapshotCronDelete(server_name,{
+    "name" => @name
+})
 ```
 ### Domain
 ```ruby

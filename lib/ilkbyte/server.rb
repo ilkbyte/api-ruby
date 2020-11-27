@@ -44,5 +44,41 @@ module Ilkbyte
     def ipLogs(server_name)
       request("/server/manage/#{server_name}/ip/logs")
     end
+
+    def backup(server_name)
+      request("/server/manage/#{server_name}/backup")
+    end
+
+    def backupRestore(server_name,query)
+      request("/server/manage/#{server_name}/backup/restore",query)
+    end
+
+    def snapshot(server_name)
+      request("/server/manage/#{server_name}/snapshot")
+    end
+
+    def snapshotCreate(server_name,query)
+      request("/server/manage/#{server_name}/snapshot/create",query)
+    end
+
+    def snapshotRevert(server_name,query)
+      request("/server/manage/#{server_name}/snapshot/revert",query)
+    end
+
+    def snapshotUpdate(server_name,query)
+      request("/server/manage/#{server_name}/snapshot/update",query)
+    end
+
+    def snapshotDelete(server_name,query)
+      request("/server/manage/#{server_name}/snapshot/delete",query)
+    end
+
+    def snapshotCronAdd(server_name,query)
+      request("/server/manage/#{server_name}/snapshot/cron/add",query)
+    end
+
+    def snapshotCronDelete(server_name,query)
+      request("/server/manage/#{server_name}/snapshot/cron/delete",query)
+    end
   end   
 end

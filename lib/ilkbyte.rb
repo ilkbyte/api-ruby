@@ -14,7 +14,6 @@ module Ilkbyte
       param.each do |key,value|
         @query.store(key,value)
       end
-      puts @query
       apiUrl = $baseUrl + url
       begin
         client = HTTPClient.new
