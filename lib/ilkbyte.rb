@@ -1,30 +1,33 @@
-require "ilkbyte/version"
+# frozen_string_literal: true
+
+require 'ilkbyte/version'
 require 'httpclient'
 require 'json'
 
 module Ilkbyte
   class Error < StandardError; end
   class Base
-    $baseUrl = "https://api.ilkbyte.com"
-    def setOption(access,secret)
-      $option = {"access" => access,"secret" => secret}
+    $baseUrl = 'https://api.ilkbyte.com'
+    def setOption(access, secret)
+      $option = { 'access' => access, 'secret' => secret }
     end
+
     def request(url = nil, param = {})
-      @query = {"access" => $option["access"],"secret" => $option["secret"]}
-      param.each do |key,value|
-        @query.store(key,value)
+      @query = { 'access' => $option['access'], 'secret' => $option['secret'] }
+      param.each do |key, value|
+        @query.store(key, value)
       end
       apiUrl = $baseUrl + url
       begin
         client = HTTPClient.new
-        response = client.get(apiUrl,@query)
+        response = client.get(apiUrl, @query)
         JSON.parse(response.body)
-      rescue StandardError => e  
+      rescue StandardError => e
         response = {
-          "status" => false,
-          "response" => nil,
-          "message" => e.message
-        }    
+          'status' => false,
+          'response' => nil,
+          'message' => e.message
+        }
       end
     end
   end

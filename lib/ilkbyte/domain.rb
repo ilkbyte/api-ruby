@@ -1,23 +1,25 @@
+# frozen_string_literal: true
+
 module Ilkbyte
   class Domain < Base
-    def all()
-      request("/domain/list")
+    def all
+      request('/domain/list')
     end
 
     def create(query)
-      request("/domain/create",query)
+      request('/domain/create', query)
     end
 
     def show(domain)
       request("/domain/manage/#{domain}/show")
     end
 
-    def add(domain,query)
-      request("/domain/manage/#{domain}/add",query)
+    def add(domain, query)
+      request("/domain/manage/#{domain}/add", query)
     end
 
-    def update(domain,query)
-      request("/domain/manage/#{domain}/uptade",query)
+    def update(domain, query)
+      request("/domain/manage/#{domain}/uptade", query)
     end
 
     def delete(domain)
