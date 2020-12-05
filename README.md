@@ -21,9 +21,10 @@ Or install it yourself as:
 ## Configuration
 
 ```ruby
-AccessKey = "Your Api Access Key"
-SecretKey = "Your Api Secret Key"
-Ilkbyte::Base.new.setOption(AccessKey,SecretKey)
+access_key = 'Your API Access Key'
+secret_key = 'Your API Secret Key'
+
+Ilkbyte::Base.new.setOption(access_key, secret_key)
 ```
 If you don't do this, you'll give **401 not authorized** error.
 
@@ -40,78 +41,102 @@ end
 ## Functions Usage
 ### Account
 ```ruby
-Ilkbyte::Account.new.account
-Ilkbyte::Account.new.accountUsers
+client = Ilkbyte::Account.new
+# Retrieve Account
+client.account
+# List account users
+client.accountUsers
 ```
 ### Server
 ```ruby
-Ilkbyte::Server.new.create
-Ilkbyte::Server.new.config({
-    "username" => @username,
-    "password" => @password,
-    "name"     => @name,
-    "os_id"    => @os_id,
-    "app_id"   => @app_id,
-    "package_id" => @package_id,
-    "sshkey" => @sshkey
-})
-Ilkbyte::Server.new.all
-Ilkbyte::Server.new.active
-Ilkbyte::Server.new.show(server_name)
-Ilkbyte::Server.new.power(server_name,"shutdown")
-Ilkbyte::Server.new.ip(server_name)
-Ilkbyte::Server.new.ipRdns(server_name, "127.0.0.1", "test.ni.net.tr")
-Ilkbyte::Server.new.ipLogs(server_name)
-Ilkbyte::Server.new.backup(server_name)
-Ilkbyte::Server.new.backupRestore(server_name,{
-    "backup_name" => @backup_name
+# Initialize client
+client = Ilkbyte::Server.new
+
+# Get available server configurations
+client.create
+
+# Create a new server
+client.config({
+    username: username,
+    password: password,
+    name: name,
+    os_id: os_id,
+    app_id: app_id,
+    package_id: package_id,
+    sshkey: sshkey
 })
 
-Ilkbyte::Server.new.snapshot(server_name)
-Ilkbyte::Server.new.snapshotCreate(server_name,{
-    "name" => @name
+# List all servers
+client.all
+
+# List all active servers
+client.active
+
+# Retrieve single server
+client.show(server_name)
+
+client.power(server_name, 'shutdown')
+client.ip(server_name)
+client.ipRdns(server_name, '127.0.0.1', 'test.ni.net.tr')
+client.ipLogs(server_name)
+client.backup(server_name)
+client.backupRestore(server_name, {
+  backup_name: 'backup_name'
 })
-Ilkbyte::Server.new.snapshotRevert(server_name,{
-    "name" => @name
+client.snapshot(server_name)
+client.snapshotCreate(server_name, {
+    name: name
 })
-Ilkbyte::Server.new.snapshotUpdate(server_name,{
-    "name" => @name
+client.snapshotRevert(server_name, {
+    name: name
 })
-Ilkbyte::Server.new.snapshotDelete(server_name,{
-    "name" => @name
+client.snapshotUpdate(server_name, {
+    name: name
 })
-Ilkbyte::Server.new.snapshotCronAdd(server_name,{
-    "name" => @name,
-    "day" => @day,
-    "hour" => @hour,
-    "min" => @min
+client.snapshotDelete(server_name, {
+    name: name
 })
-Ilkbyte::Server.new.snapshotCronDelete(server_name,{
-    "name" => @name
+client.snapshotCronAdd(server_name,
+  {
+    name: name,
+    day: day,
+    hour: hour,
+    min: min
+  }
+)
+client.snapshotCronDelete(server_name, {
+    name: name
 })
 ```
 ### Domain
 ```ruby
-Ilkbyte::Domain.new.all
-Ilkbyte::Domain.new.create({
-    "server" => @server_name,
-    "domain" => @domain,
-    "ipv6" => ipv6
-    })
-Ilkbyte::Domain.new.show("your-domain-name")
-Ilkbyte::Domain.new.add("your-domain-name",{
-    "record_name" => @record_name,
-    "record_type" => @record_type,
-    "record_content" => @record_content,
-    "record_priority" => @priority
-})
-Ilkbyte::Domain.new.update("your-domain-name",{
-    "record_id" => @record_id,
-    "record_content" => @record_content,
-    "record_priority" => @priority
-})
-Ilkbyte::Domain.new.delete("your-domain-name")
-Ilkbyte::Domain.new.push("your-domain-name")
+client = Ilkbyte::Domain.new
+client.all
+client.create(
+  {
+    server: server_name,
+    domain: domain,
+    ipv6: ipv6
+  }
+)
+client.show('your-domain-name')
+client.add('your-domain-name',
+  {
+    record_name: record_name,
+    record_type: record_type,
+    record_content: record_content,
+    record_priority: priority
+  }
+)
+client.update('your-domain-name',
+  {
+    record_id: record_id,
+    record_content: record_content,
+    record_priority: priority
+  }
+)
+client.delete('your-domain-name')
+client.push('your-domain-name')
 ```
 ## Development
 
