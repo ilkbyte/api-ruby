@@ -3,18 +3,23 @@ PATH
   specs:
     ilkbyte (0.2.1)
       bundler
-      httpclient (~> 2.8)
+      faraday (~> 1.1)
       rake (~> 12.0)
 
 GEM
   remote: https://rubygems.org/
   specs:
+    addressable (2.7.0)
+      public_suffix (>= 2.0.2, < 5.0)
+    crack (0.4.3)
+      safe_yaml (~> 1.0.0)
     diff-lcs (1.4.4)
     faraday (1.1.0)
       multipart-post (>= 1.2, < 3)
       ruby2_keywords
-    httpclient (2.8.3)
+    hashdiff (1.0.0)
     multipart-post (2.1.1)
+    public_suffix (4.0.6)
     rake (12.3.3)
     rspec (3.10.0)
       rspec-core (~> 3.10.0)
@@ -30,6 +35,12 @@ GEM
       rspec-support (~> 3.10.0)
     rspec-support (3.10.0)
     ruby2_keywords (0.0.2)
+    safe_yaml (1.0.5)
+    vcr (4.0.0)
+    webmock (3.7.6)
+      addressable (>= 2.3.6)
+      crack (>= 0.3.2)
+      hashdiff (>= 0.4.0, < 2.0.0)
 
 PLATFORMS
   ruby
@@ -39,6 +50,8 @@ DEPENDENCIES
   ilkbyte!
   rake (~> 12.0)
   rspec (~> 3.0)
+  vcr (~> 4.0)
+  webmock (~> 3.5, >= 3.5.1)
 
 BUNDLED WITH
    2.1.4

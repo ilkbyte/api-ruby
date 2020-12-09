@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# Remove previous built file
+echo "Remove previous built file"
+rm -rf ilkbyte-0.2.*.gem
+
+# Build gemspec
+echo "Build gemspec"
+gem build ilkbyte.gemspec
+
+# Install built gem file
+echo "Install gem"
+gem install ilkbyte-0.2.*.gem
