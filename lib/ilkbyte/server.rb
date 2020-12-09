@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Ilkbyte
-  class Server < Base
+  class Server < BaseResource
     def create
       request('/server/create')
     end
