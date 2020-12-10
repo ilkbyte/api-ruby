@@ -1,0 +1,36 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.ilkbyte.com/domain/manage/ilkbyte.com/show?access=access_key&secret=secret_key
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.1.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 10 Dec 2020 16:22:15 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '339'
+      Connection:
+      - keep-alive
+      Server:
+      - Netinternet WAF
+    body:
+      encoding: UTF-8
+      string: '{"status":true,"message":"ilkbyte.com Bilgileri","error":null,"data":{"Records":[{"Content":"89.252.131.226","Id":4061,"Name":"","Prio":0,"Ttl":10800,"Type":"A"},{"Content":"ilkbyte.com","Id":4062,"Name":"www","Prio":0,"Ttl":10800,"Type":"CNAME"},{"Content":"2a03:2100:0:2a::e9:2","Id":4063,"Name":"","Prio":0,"Ttl":10800,"Type":"AAAA"}]}}'
+    http_version: 
+  recorded_at: Thu, 10 Dec 2020 16:12:10 GMT
+recorded_with: VCR 4.0.0

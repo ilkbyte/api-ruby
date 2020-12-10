@@ -17,11 +17,18 @@ module Ilkbyte
       @query = { access: @access_key, secret: @secret_key }
     end
 
-    def request(path, query = nil)
+    def request(path, query_params = {})
+      # Prepare request_url
       request_url = BASE_URL + path
 
-      response = Faraday.get(request_url, @query)
+      # Handle optional query params
+      query_params.each { |key, value| @query.store(key, value) }
+
+      # Send request
+      response = Faraday.get(request_url, query)
+      # Assign response status
       @status_code = response.status
+      # Parse response body
       JSON.parse response.body
     end
 

@@ -16,19 +16,20 @@ module Ilkbyte
 
     # https://api.ilkbyte.com/domain/create
     # Create a new domain
-    def create(query)
+    def create(query = {})
       request RESOURCE + 'create', query
     end
 
     # https://api.ilkbyte.com/domain/manage/:domain_name/show
     # Retrieve the Domain DNS Records
-    def show(domain)
+    def retrieve(domain)
       request RESOURCE + "manage/#{domain}/show"
     end
+    alias show retrieve
 
     # https://api.ilkbyte.com/domain/manage/:domain_name/add
     # Add a DNS record the domain
-    def add(domain, query)
+    def add(domain, query = {})
       request RESOURCE + "manage/#{domain}/add", query
     end
 
@@ -40,8 +41,8 @@ module Ilkbyte
 
     # https://api.ilkbyte.com/domain/manage/:domain_name/delete
     # Delete the domain DNS record
-    def delete(domain)
-      request RESOURCE + "manage/#{domain}/delete"
+    def delete(domain, query = {})
+      request RESOURCE + "manage/#{domain}/delete", query
     end
 
     # https://api.ilkbyte.com/domain/manage/:domain_name/push

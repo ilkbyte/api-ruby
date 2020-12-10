@@ -1,0 +1,36 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.ilkbyte.com/domain/create?access=access_key&domain=ilkbyte-api.com&ipv6=false&secret=secret_key&server=ilkbyteApiServer
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.1.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 10 Dec 2020 16:09:26 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '91'
+      Connection:
+      - keep-alive
+      Server:
+      - Netinternet WAF
+    body:
+      encoding: UTF-8
+      string: '{"status":true,"message":"Yeni Alan Adı ilkbyte-api.com Eklendi","error":null,"data":null}'
+    http_version: 
+  recorded_at: Thu, 10 Dec 2020 15:59:21 GMT
+recorded_with: VCR 4.0.0

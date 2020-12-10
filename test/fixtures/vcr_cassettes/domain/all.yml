@@ -1,0 +1,36 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.ilkbyte.com/domain/list?access=access_key&secret=secret_key
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.17.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 10 Dec 2020 15:56:58 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '233'
+      Connection:
+      - keep-alive
+      Server:
+      - Netinternet WAF
+    body:
+      encoding: UTF-8
+      string: '{"status":true,"message":"1 Domain Listed","error":null,"data":{"domain_list":[{"domain":"ilkbyte.com","nameserver":{"master":"ns1-ilkbyte.ni.net.tr","slave":"ns2-ilkbyte.ni.net.tr"}}],"pagination":{"current_page":1,"total_page":1}}}'
+    http_version: 
+  recorded_at: Thu, 10 Dec 2020 15:46:53 GMT
+recorded_with: VCR 4.0.0
