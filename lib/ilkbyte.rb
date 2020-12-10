@@ -10,6 +10,6 @@ module Ilkbyte
 end
 
 require_relative 'ilkbyte/resources/base_resource'
-require_relative 'ilkbyte/server'
+require_relative 'ilkbyte/resources/server'
 require_relative 'ilkbyte/resources/domain'
 require_relative 'ilkbyte/resources/account'

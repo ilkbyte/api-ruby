@@ -1,0 +1,36 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.ilkbyte.com/server/manage/Test/ip/logs?access=access_key&secret=secret_key
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.1.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 10 Dec 2020 19:13:49 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '83'
+      Connection:
+      - keep-alive
+      Server:
+      - Netinternet WAF
+    body:
+      encoding: UTF-8
+      string: '{"status": true,"message": "","error": null,"data":[{"ip_prefix": "127.0.0.1/32","is_log": true,"is_person": false,"log_file": "https://kova2.ni.net.tr/log/2020/07/29/127.0.0.1-out-test.txt","rule_in": "2020-07-29T23:46:25+03:00","rule_out": "2020-07-30T00:16:33+03:00","rule_type": "Null Route"},{"ip_prefix": "127.0.0.1/32","is_log": true,"is_person": false,"log_file": "https://kova2.ni.net.tr/log/2020/07/30/127.0.0.1-out-test.txt","rule_in": "2020-07-30T00:17:09+03:00","rule_out": "2020-07-30T00:47:13+03:00","rule_type": "Null Route"}]}'
+    http_version: 
+  recorded_at: Thu, 10 Dec 2020 19:03:43 GMT
+recorded_with: VCR 4.0.0
