@@ -5,6 +5,6 @@ require 'vcr'
 require 'zlib'
 
 VCR.configure do |vcr|
-  vcr.cassette_library_dir = 'spec/fixtures/vcr_cassettes'
+  vcr.cassette_library_dir = 'test/fixtures/vcr_cassettes'
   vcr.hook_into :webmock
 end
