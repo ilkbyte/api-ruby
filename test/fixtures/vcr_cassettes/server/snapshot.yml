@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.ilkbyte.com/server/manage/Test/ip/rdns?access=access_key&ip=127.0.0.1&rdns=rdns.ilkbyte.com&secret=secret_key
+    uri: https://api.ilkbyte.com/server/manage/ilkbyteApiServer/snapshot?access=access_key&secret=secret_key
     body:
       encoding: US-ASCII
       string: ''
@@ -19,18 +19,18 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sun, 20 Dec 2020 19:34:25 GMT
+      - Sat, 12 Dec 2020 12:59:15 GMT
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
-      - '95'
+      - '86'
       Connection:
       - keep-alive
       Server:
       - Netinternet WAF
     body:
       encoding: UTF-8
-      string: '{"status":true,"message":"127.0.0.1 IP Adresi RDNS kaydı Güncellendi","error":null,"data":null}'
+      string: '{"status":true,"message":"Snapshot list created","error":null,"data":{"snapshots":[]}}'
     http_version: 
-  recorded_at: Sun, 20 Dec 2020 19:23:29 GMT
+  recorded_at: Sat, 12 Dec 2020 12:49:01 GMT
 recorded_with: VCR 4.0.0

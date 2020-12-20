@@ -80,7 +80,7 @@ class ServerTest < TestBase
 
   def test_server_ip_rdns
     VCR.use_cassette 'server/rdns' do
-      @server.ip_rdns 'Test', ip: '93.115.79.36', rdns: 'rdns.ilkbyte.com'
+      @server.ip_rdns 'Test', ip: '127.0.0.1', rdns: 'rdns.ilkbyte.com'
     end
 
     assert_equal @server.success?, true
@@ -89,7 +89,7 @@ class ServerTest < TestBase
   # @deprecated old method
   def test_server_ipRdns
     VCR.use_cassette 'server/rdns' do
-      @server.ipRdns 'Test', ip: '93.115.79.36', rdns: 'rdns.ilkbyte.com'
+      @server.ipRdns 'Test', ip: '127.0.0.1', rdns: 'rdns.ilkbyte.com'
     end
 
     assert_equal @server.success?, true
@@ -103,9 +103,144 @@ class ServerTest < TestBase
     assert_equal @server.success?, true
   end
 
+  # @deprecated old method
   def test_server_ipLogs
     VCR.use_cassette 'server/ip_logs' do
       @server.ipLogs 'Test'
+    end
+
+    assert_equal @server.success?, true
+  end
+
+  def test_server_backup
+    VCR.use_cassette 'server/backup' do
+      @server.backup 'Test'
+    end
+
+    assert_equal @server.success?, true
+  end
+
+  def test_server_backup_restore
+    VCR.use_cassette 'server/backup_restore' do
+      @server.backup_restore 'Test', 'Weekly'
+    end
+
+    assert_equal @server.success?, true
+  end
+
+  # @deprecated old method
+  def test_server_backupRestore
+    VCR.use_cassette 'server/backup_restore' do
+      @server.backup_restore 'Test', 'Weekly'
+    end
+
+    assert_equal @server.success?, true
+  end
+
+  def test_server_snapshot_list
+    VCR.use_cassette 'server/snapshot' do
+      @server.snapshot 'ilkbyteApiServer'
+    end
+
+    assert_equal @server.success?, true
+  end
+
+  def test_server_snapshot_create
+    VCR.use_cassette 'server/snapshot_create' do
+      @server.snapshot_create 'ilkbyteApiServer', 'test'
+    end
+
+    assert_equal @server.success?, true
+  end
+
+  # @deprecated old method
+  def test_server_snapshotCreate
+    VCR.use_cassette 'server/snapshot_create' do
+      @server.snapshotCreate 'ilkbyteApiServer', 'test'
+    end
+
+    assert_equal @server.success?, true
+  end
+
+  def test_server_snapshot_revert
+    VCR.use_cassette 'server/snapshot_revert' do
+      @server.snapshot_revert 'ilkbyteApiServer', 'test'
+    end
+
+    assert_equal @server.success?, true
+  end
+
+  # @deprecated old method
+  def test_server_snapshotRevert
+    VCR.use_cassette 'server/snapshot_revert' do
+      @server.snapshotRevert 'ilkbyteApiServer', 'test'
+    end
+
+    assert_equal @server.success?, true
+  end
+
+  def test_server_snapshot_update
+    VCR.use_cassette 'server/snapshot_update' do
+      @server.snapshot_update 'Test', 'test'
+    end
+
+    assert_equal @server.success?, true
+  end
+
+  # @deprecated old method
+  def test_server_snapshotUpdate
+    VCR.use_cassette 'server/snapshot_update' do
+      @server.snapshotUpdate 'Test', 'test'
+    end
+
+    assert_equal @server.success?, true
+  end
+
+  def test_server_snapshot_delete
+    VCR.use_cassette 'server/snapshot_delete' do
+      @server.snapshot_delete 'Test', 'test'
+    end
+
+    assert_equal @server.success?, true
+  end
+
+  # @deprecated old method
+  def test_server_snapshotDelete
+    VCR.use_cassette 'server/snapshot_delete' do
+      @server.snapshotDelete 'Test', 'test'
+    end
+
+    assert_equal @server.success?, true
+  end
+
+  def test_server_snapshot_cron_add
+    VCR.use_cassette 'server/snapshot_cron_add' do
+      @server.snapshot_cron_add 'Test', name: 'test', day: 0, hour: 12, min: 0
+    end
+
+    assert_equal @server.success?, true
+  end
+
+  # @deprecated old method
+  def test_server_snapshotCronAdd
+    VCR.use_cassette 'server/snapshot_cron_add' do
+      @server.snapshotCronAdd 'Test', name: 'test', day: 0, hour: 12, min: 0
+    end
+
+    assert_equal @server.success?, true
+  end
+
+  def test_server_snapshot_cron_delete
+    VCR.use_cassette 'server/snapshot_cron_delete' do
+      @server.snapshot_cron_delete 'Test', 'test'
+    end
+
+    assert_equal @server.success?, true
+  end
+
+  def test_server_snapshotCronDelete
+    VCR.use_cassette 'server/snapshot_cron_delete' do
+      @server.snapshotCronDelete 'Test', 'test'
     end
 
     assert_equal @server.success?, true

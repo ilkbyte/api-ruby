@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.ilkbyte.com/domain/manage/ilkbyte.com/show?access=access_key&secret=secret_key
+    uri: https://api.ilkbyte.com/server/manage/Test/backup/restore?access=access_key&backup_name=Weekly&secret=secret_key
     body:
       encoding: US-ASCII
       string: ''
@@ -19,18 +19,18 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 10 Dec 2020 16:22:15 GMT
+      - Fri, 11 Dec 2020 20:11:43 GMT
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
-      - '339'
+      - '66'
       Connection:
       - keep-alive
       Server:
       - Netinternet WAF
     body:
       encoding: UTF-8
-      string: '{"status":true,"message":"ilkbyte.com Bilgileri","error":null,"data":{"Records":[{"Content":"127.0.0.1","Id":4061,"Name":"","Prio":0,"Ttl":10800,"Type":"A"},{"Content":"ilkbyte.com","Id":4062,"Name":"www","Prio":0,"Ttl":10800,"Type":"CNAME"},{"Content":"0:0:0:0:0:0:0:1","Id":4063,"Name":"","Prio":0,"Ttl":10800,"Type":"AAAA"}]}}'
+      string: '{"status": true,"message": "Test backup process is queued!!","error": null,"data": {"name": "Deneme","file_size": "5 GB","file_hash": "111111","is_locked": false,"backup_time": "2020-10-09T15:58:49+03:00"}}'
     http_version: 
-  recorded_at: Thu, 10 Dec 2020 16:12:10 GMT
+  recorded_at: Fri, 11 Dec 2020 20:01:33 GMT
 recorded_with: VCR 4.0.0

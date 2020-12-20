@@ -42,8 +42,7 @@ module Ilkbyte
     # Manage server power status
     # Available parameters :start, :shutdown, :reboot, :destroy
     def power(name, power)
-      query = { set: String(power) }
-      request RESOURCE + "manage/#{name}/power", query
+      request RESOURCE + "manage/#{name}/power", set: String(power)
     end
 
     # https://api.ilkbyte.com/server/manage/:name/monitor
@@ -77,40 +76,72 @@ module Ilkbyte
     # Old method name is ipRdns
     alias ipRdns ip_rdns
 
-    def backup(server_name)
-      request("/server/manage/#{server_name}/backup")
+    # https://api.ilkbyte.com/server/manage/:name/backup
+    # List server backups
+    def backup(name)
+      request RESOURCE + "manage/#{name}/backup"
     end
 
-    def backupRestore(server_name, query)
-      request("/server/manage/#{server_name}/backup/restore", query)
+    # https://api.ilkbyte.com/server/manage/:name/backup/restore
+    # Restore the backup
+    def backup_restore(name, backup_name)
+      request RESOURCE + "manage/#{name}/backup/restore", backup_name: backup_name
+    end
+    # Old method name is backupRestore
+    alias backupRestore backup_restore
+
+    # https://api.ilkbyte.com/server/manage/:name/snapshot
+    # List the server snapshots
+    def snapshot(name)
+      request RESOURCE + "manage/#{name}/snapshot"
     end
 
-    def snapshot(server_name)
-      request("/server/manage/#{server_name}/snapshot")
+    # https://api.ilkbyte.com/server/manage/:name/snapshot/create
+    # Create a new snapshot
+    def snapshot_create(name, snapshot_name)
+      request RESOURCE + "manage/#{name}/snapshot/create", name: snapshot_name
     end
+    # Old method name is snapshotCreate
+    alias snapshotCreate snapshot_create
 
-    def snapshotCreate(server_name, query)
-      request("/server/manage/#{server_name}/snapshot/create", query)
+    # https://api.ilkbyte.com/server/manage/:name/snapshot/revert
+    # Rollback server from snapshot
+    def snapshot_revert(name, snapshot_name)
+      request RESOURCE + "manage/#{name}/snapshot/revert", name: snapshot_name
     end
+    # Old method name is snapshotRevert
+    alias snapshotRevert snapshot_revert
 
-    def snapshotRevert(server_name, query)
-      request("/server/manage/#{server_name}/snapshot/revert", query)
+    # https://api.ilkbyte.com/server/manage/:name/snapshot/update
+    # Re-create the snapshot
+    def snapshot_update(name, snapshot_name)
+      request RESOURCE + "manage/#{name}/snapshot/update", name: snapshot_name
     end
+    # Old method name is snapshotUpdate
+    alias snapshotUpdate snapshot_update
 
-    def snapshotUpdate(server_name, query)
-      request("/server/manage/#{server_name}/snapshot/update", query)
+    # https://api.ilkbyte.com/server/manage/:name/snapshot/delete
+    # Delete the snapshot
+    def snapshot_delete(name, snapshot_name)
+      request RESOURCE + "manage/#{name}/snapshot/delete", name: snapshot_name
     end
+    # Old method name is snapshotDelete
+    alias snapshotDelete snapshot_delete
 
-    def snapshotDelete(server_name, query)
-      request("/server/manage/#{server_name}/snapshot/delete", query)
+    # https://api.ilkbyte.com/server/manage/:name/snapshot/cron/add
+    # Create new snapshot cron job for the server
+    def snapshot_cron_add(name, query = {})
+      request RESOURCE + "manage/#{name}/snapshot/cron/add", query
     end
+    # Old method name is snapshotDelete
+    alias snapshotCronAdd snapshot_cron_add
 
-    def snapshotCronAdd(server_name, query)
-      request("/server/manage/#{server_name}/snapshot/cron/add", query)
+    # https://api.ilkbyte.com/server/manage/:name/snapshot/cron/delete
+    # Delete the snapshot cron job
+    def snapshot_cron_delete(name, snapshot_job_name)
+      request RESOURCE + "manage/#{name}/snapshot/cron/delete", name: snapshot_job_name
     end
-
-    def snapshotCronDelete(server_name, query)
-      request("/server/manage/#{server_name}/snapshot/cron/delete", query)
-    end
+    # Old method name is snapshotCronDelete
+    alias snapshotCronDelete snapshot_cron_delete
   end
 end
