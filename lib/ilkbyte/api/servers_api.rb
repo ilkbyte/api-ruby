@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Ilkbyte
-  class Server < BaseResource
+  class ServersApi < BaseApi
     RESOURCE = 'server/'
 
     def initialize(**args)

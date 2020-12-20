@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Ilkbyte
-  class BaseResource
+  class BaseApi
     BASE_URL = 'https://api.ilkbyte.com/'
 
     attr_reader :access_key, :secret_key, :query, :status_code

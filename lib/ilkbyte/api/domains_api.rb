@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Ilkbyte
-  class Domain < BaseResource
+  class DomainsApi < BaseApi
     RESOURCE = 'domain/'
 
     def initialize(**args)

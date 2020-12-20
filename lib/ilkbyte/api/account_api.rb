@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Ilkbyte
-  class Account < BaseResource
+  class AccountApi < BaseApi
     RESOURCE = 'account'
 
     def initialize(**args)

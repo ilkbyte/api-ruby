@@ -4,7 +4,8 @@ require 'test_helper'
 
 class AccountTest < TestBase
   def setup
-    @account = Ilkbyte::Account.new(access_key: 'access_key', secret_key: 'secret_key')
+    client = Ilkbyte::Client.new(access_key: 'access_key', secret_key: 'secret_key')
+    @account = client.account
   end
 
   def test_account_retrieve

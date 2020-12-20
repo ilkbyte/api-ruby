@@ -9,7 +9,8 @@ module Ilkbyte
 
 end
 
-require_relative 'ilkbyte/resources/base_resource'
-require_relative 'ilkbyte/resources/server'
-require_relative 'ilkbyte/resources/domain'
-require_relative 'ilkbyte/resources/account'
+require_relative 'ilkbyte/client'
+require_relative 'ilkbyte/api/base_api'
+require_relative 'ilkbyte/api/servers_api'
+require_relative 'ilkbyte/api/domains_api'
+require_relative 'ilkbyte/api/account_api'
