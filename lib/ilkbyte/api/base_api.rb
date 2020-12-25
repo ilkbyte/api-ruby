@@ -4,7 +4,7 @@ module Ilkbyte
   class BaseApi
     BASE_URL = 'https://api.ilkbyte.com/'
 
-    attr_reader :access_key, :secret_key, :query, :status_code
+    attr_reader :access_key, :secret_key, :query, :status_code, :data
 
     def initialize(**args)
       @access_key = args[:access_key]
@@ -29,7 +29,7 @@ module Ilkbyte
       # Assign response status
       @status_code = response.status
       # Parse response body
-      JSON.parse response.body
+      @data = JSON.parse response.body
     end
 
     # returns true if status_code is between 200-300
