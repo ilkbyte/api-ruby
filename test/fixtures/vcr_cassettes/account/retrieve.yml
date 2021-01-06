@@ -1,0 +1,37 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.ilkbyte.com/account?access=access_key&secret=secret_key
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.1.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 09 Dec 2020 18:56:07 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '127'
+      Connection:
+      - keep-alive
+      Server:
+      - Netinternet WAF
+    body:
+      encoding: UTF-8
+      string: '{"status":true,"message":"Account Info","error":null,"data":{"balance":74.3,"group":"Standart","name":"Vilusa
+        ","status":true}}'
+    http_version: 
+  recorded_at: Wed, 09 Dec 2020 18:46:07 GMT
+recorded_with: VCR 4.0.0

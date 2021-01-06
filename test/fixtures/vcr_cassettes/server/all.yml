@@ -1,0 +1,41 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.ilkbyte.com/server/list/all?access=access_key&secret=secret_key
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.1.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 10 Dec 2020 18:11:04 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      - Accept-Encoding
+      Server:
+      - Netinternet WAF
+    body:
+      encoding: UTF-8
+      string: '{"status":true,"message":"5 Server Listed","error":null,"data":{"pagination":{"current_page":1,"total_page":1},"server_list":[{"bandwidth_limit":1073741824000,"bandwidth_usage":4166959,"created_time":"10.12.2020
+        20:56:18","ipv4":"127.0.0.1","ipv6":"","name":"Test","osapp":"Ubuntu
+        20.04 LTS / OpenSSH","service":"active","status":"running"}]}}'
+    http_version: 
+  recorded_at: Thu, 10 Dec 2020 18:00:59 GMT
+recorded_with: VCR 4.0.0

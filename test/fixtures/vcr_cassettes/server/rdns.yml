@@ -1,0 +1,36 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.ilkbyte.com/server/manage/Test/ip/rdns?access=access_key&ip=127.0.0.1&rdns=rdns.ilkbyte.com&secret=secret_key
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.17.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 20 Dec 2020 19:34:25 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '95'
+      Connection:
+      - keep-alive
+      Server:
+      - Netinternet WAF
+    body:
+      encoding: UTF-8
+      string: '{"status":true,"message":"127.0.0.1 IP Adresi RDNS kaydı Güncellendi","error":null,"data":null}'
+    http_version: 
+  recorded_at: Sun, 20 Dec 2020 19:23:29 GMT
+recorded_with: VCR 4.0.0

@@ -1,6 +1,6 @@
 # Ilkbyte
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/ilkbyte`. To experiment with that code, run `bin/console` for an interactive prompt.
+Use this gem integrate Ilkbyte server management process into your app. Ilkbyte APIs including Account, Servers and Domains. 
 
 Also you can find [API documentation](https://apidocs.ilkbyte.com/docs/1.0/overview) here.
 ## Installation
@@ -21,10 +21,7 @@ Or install it yourself as:
 ## Configuration
 
 ```ruby
-access_key = 'Your API Access Key'
-secret_key = 'Your API Secret Key'
-
-Ilkbyte::Base.new.setOption(access_key, secret_key)
+client = Ilkbyte::Client.new(access_key: 'access_key', secret_key: 'secret_key')
 ```
 If you don't do this, you'll give **401 not authorized** error.
 
@@ -33,118 +30,159 @@ If you don't do this, you'll give **401 not authorized** error.
 ```ruby
 require 'ilkbyte'
 
-def myMethod()
-    Ilkbyte::Server.new.create
+client = Ilkbyte::Client.new(access_key: 'access_key', secret_key: 'secret_key')
+
+account_api = client.account
+if account_api.success?
+  puts account_api.data
 end
 ```
 
 ## Functions Usage
 ### Account
 ```ruby
-client = Ilkbyte::Account.new
+# Initialize account form client
+account = client.account
+
 # Retrieve Account
-client.account
+# Old name is account will be deprecated on new version
+account.retrieve
+
 # List account users
-client.accountUsers
+# Old name is accountUsers will be deprecated on new version
+account.users
+
 ```
 ### Server
 ```ruby
-# Initialize client
-client = Ilkbyte::Server.new
+# Initialize server from client
+servers = client.servers
 
 # Get available server configurations
-client.create
+servers.create
 
 # Create a new server
-client.config({
-    username: username,
-    password: password,
-    name: name,
-    os_id: os_id,
-    app_id: app_id,
-    package_id: package_id,
-    sshkey: sshkey
-})
+servers.config username: 'ilkbyteuser', name: 'Test', os_id: 17, package_id: 5, sshkey: 'ssh-rsa'
 
 # List all servers
-client.all
+servers.all
 
 # List all active servers
-client.active
+servers.active
 
 # Retrieve single server
-client.show(server_name)
+servers.show 'Test'
 
-client.power(server_name, 'shutdown')
-client.ip(server_name)
-client.ipRdns(server_name, '127.0.0.1', 'test.ni.net.tr')
-client.ipLogs(server_name)
-client.backup(server_name)
-client.backupRestore(server_name, {
-  backup_name: 'backup_name'
-})
-client.snapshot(server_name)
-client.snapshotCreate(server_name, {
-    name: name
-})
-client.snapshotRevert(server_name, {
-    name: name
-})
-client.snapshotUpdate(server_name, {
-    name: name
-})
-client.snapshotDelete(server_name, {
-    name: name
-})
-client.snapshotCronAdd(server_name,
-  {
-    name: name,
-    day: day,
-    hour: hour,
-    min: min
-  }
-)
-client.snapshotCronDelete(server_name, {
-    name: name
-})
+# Manage server power
+servers.power 'Test', :shutdown
+
+# Monitor server status
+servers.monitor 'Test'
+
+# IP Management Operations
+# ========================
+# List server IP list
+# Old name is ip will be deprecated on new version
+servers.ip_list 'Test'
+
+# Show server IP logs
+# Old name is ipLogs will be deprecated on new version
+servers.ip_logs 'Test'
+
+# Update Server IP RDN record
+# Old name is ipRdns will be deprecated on new version
+servers.ip_rdns 'Test', ip: '127.0.0.1', rdns: 'test.ni.net.tr'
+
+# Backup Operations
+# ========================
+# List server backups
+servers.backup 'Test'
+
+# Restore the server backup
+# Old name is backupRestore will be deprecated on new version
+servers.backup_restore 'Test', 'backup_name'
+
+# Snapshot Operations
+# ========================
+# List server snapshots
+servers.snapshot 'Test'
+
+# Create a new snapshot
+# Old name is snapshotCreate will be deprecated on new version
+servers.snapshot_create 'Test', 'new_snapshot'
+
+# Import snapshot
+# Old name is snapshotRevert will be deprecated on new version
+servers.snapshot_revert 'Test', 'old_snapshot'
+
+# Re-create old snapshot
+# Old name is snapshotUpdate will be deprecated on new version
+servers.snapshot_update 'Test', 'old_snapshot'
+
+# Delete existing snapshot
+# Old name is snapshotDelete will be deprecated on new version
+servers.snapshot_delete 'Test', 'old_snapshot'
+
+# Create snapshot cronjob
+# You have a snapshot
+# Old name is snapshotCronAdd will be deprecated on new version
+servers.snapshot_cron_add 'Test', name: 'my_snapshot', day: 0, hour: 12, min: 0
+  
+# Delete existing snapshot cron job
+# Old name is snapshotCronDelete will be deprecated on new version
+servers.snapshot_cron_delete 'Test', 'my_snapshot'
 ```
 ### Domain
 ```ruby
-client = Ilkbyte::Domain.new
-client.all
-client.create(
-  {
-    server: server_name,
-    domain: domain,
-    ipv6: ipv6
-  }
-)
-client.show('your-domain-name')
-client.add('your-domain-name',
-  {
-    record_name: record_name,
-    record_type: record_type,
-    record_content: record_content,
-    record_priority: priority
-  }
-)
-client.update('your-domain-name',
-  {
-    record_id: record_id,
-    record_content: record_content,
-    record_priority: priority
-  }
-)
-client.delete('your-domain-name')
-client.push('your-domain-name')
+# Initialize domains form client
+domains = client.domains
+
+# List domains
+domains.all
+
+# Create a new domain
+domains.create domain: 'ilkbyte-api.com', server: 'Test', ipv6: false
+
+# Show domains DNS records
+# Old name is show will be deprecated on new version
+domains.retrieve 'ilkbyte-api.com'
+
+# Add a new DNS record to domains
+domains.add 'ilkbyte-api.com', record_name: 'api', record_type: 'CNAME', record_content: 'ilkbyte-api.com'
+
+# Update domains existing DNS record
+domains.update 'ilkbyte-api.com', record_id: 4_068, record_content: 'ilkbyte-dns.com'
+
+# Delete domains exist DNS record 
+domains.delete 'ilkbyte-api.com'
+
+# Send DNS updates to the server
+domains.push 'ilkbyte-api.com'
 ```
-## Development
-
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+## TODOs
+- [ ] CHANGELOG will be written for old releases
+- [ ] A new release will be prepared
+- [ ] Github CI will be enabled for tests
 
 ## Contributing
+- First, clone the gem locally and `cd` into the directory.
+```sh
+git clone https://github.com/ilkbyte/api-ruby.git
+cd api-ruby
+```
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/ilkbyte.
+- Next, make sure Bundler is installed and install the development dependencies.
 
+```sh
+gem install bundler
+bundle
+```
+- Create a topic branch - git checkout -b my_branch
+
+- Run all tests:
+```sh
+rake test
+```
+
+- Push to your branch - git push origin my_branch 
+- Create a Pull Request from your branch

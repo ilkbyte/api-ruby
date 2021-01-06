@@ -1,8 +1,14 @@
-source "https://rubygems.org"
+# frozen_string_literal: true
+
+source 'https://rubygems.org'
 
 # Specify your gem's dependencies in ilkbyte.gemspec
 gemspec
 
-gem "rake", "~> 12.0"
-gem "rspec", "~> 3.0"
-gem 'httpclient', '~> 2.8', '>= 2.8.3'
+# HTTP Client API
+gem 'faraday', '~> 1.1'
+gem 'minitest', '~> 5.0'
+gem 'rake', '~> 12.0'
+
+gem 'vcr', '~> 4.0'
+gem 'webmock', '~> 3.5', '>= 3.5.1'

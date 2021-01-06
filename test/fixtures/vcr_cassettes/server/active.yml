@@ -1,0 +1,40 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.ilkbyte.com/server/list?access=access_key&secret=secret_key
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.1.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 10 Dec 2020 18:19:36 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '621'
+      Connection:
+      - keep-alive
+      Server:
+      - Netinternet WAF
+    body:
+      encoding: UTF-8
+      string: '{"status":true,"message":"2 Server Listed","error":null,"data":{"pagination":{"current_page":1,"total_page":1},"server_list":[{"bandwidth_limit":1073741824000,"bandwidth_usage":11843702,"created_time":"10.12.2020
+        20:56:18","ipv4":"93.115.79.36","ipv6":"2a03:2100:0:2a::129:2","name":"Test","osapp":"Ubuntu
+        20.04 LTS / OpenSSH","service":"active","status":"running"},{"bandwidth_limit":1073741824000,"bandwidth_usage":47140159,"created_time":"10.12.2020
+        18:45:06","ipv4":"89.252.131.226","ipv6":"2a03:2100:0:2a::e9:2","name":"ilkbyteApiServer","osapp":"Ubuntu
+        20.04 LTS / OpenSSH","service":"active","status":"running"}]}}'
+    http_version: 
+  recorded_at: Thu, 10 Dec 2020 18:09:30 GMT
+recorded_with: VCR 4.0.0

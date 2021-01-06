@@ -1,0 +1,37 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.ilkbyte.com/server/manage/Test/monitor?access=access_key&secret=secret_key
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.1.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 10 Dec 2020 18:54:08 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '221'
+      Connection:
+      - keep-alive
+      Server:
+      - Netinternet WAF
+    body:
+      encoding: UTF-8
+      string: '{"status":true,"message":"Selected Server Test","error":null,"data":{"service":"Active","status":"shut
+        off","ipv4":"127.1.1.0","ipv6":"","bandwidth_limit":1073741824000,"bandwidth_usage":32102360}}'
+    http_version: 
+  recorded_at: Thu, 10 Dec 2020 18:44:03 GMT
+recorded_with: VCR 4.0.0

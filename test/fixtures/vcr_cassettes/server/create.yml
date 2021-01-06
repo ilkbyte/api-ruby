@@ -1,0 +1,50 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.ilkbyte.com/server/create?access=access_key&secret=secret_key
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.1.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 10 Dec 2020 16:51:32 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      - Accept-Encoding
+      Server:
+      - Netinternet WAF
+    body:
+      encoding: UTF-8
+      string: '{"status":true,"message":"Config options","error":null,"data":{"application":[{"code":2,"name":"Minio","system":"Ubuntu
+        16.04 LTS"},{"code":3,"name":"Sentry","system":"Ubuntu 18.04 LTS"},{"code":19,"name":"Django","system":"Ubuntu
+        16.04 LTS"},{"code":20,"name":"Docker","system":"Ubuntu 18.04 LTS"},{"code":26,"name":"Lemp","system":"Ubuntu
+        16.04 LTS"},{"code":29,"name":"Wordpress","system":"Ubuntu 18.04 LTS"},{"code":41,"name":"Mattermost","system":"Ubuntu
+        16.04 LTS"}],"operating_system":[{"code":1,"name":"Ubuntu","version":"16.04
+        LTS"},{"code":3,"name":"CentOS","version":"7"},{"code":7,"name":"Debian","version":"9"},{"code":12,"name":"Ubuntu","version":"18.04
+        LTS"},{"code":14,"name":"Debian","version":"10"},{"code":15,"name":"Fedora","version":"30"},{"code":16,"name":"CentOS","version":"8"},{"code":17,"name":"Ubuntu","version":"20.04
+        LTS"}],"package":[{"code":5,"features":"2 vCPU / 2 GB Memory / 20 GB SSD Disk
+        / 1000 GB Bandwidth","name":"Cloud I","price":"$3.49/monthly"},{"code":6,"features":"3
+        vCPU / 4 GB Memory / 40 GB SSD Disk / 2000 GB Bandwidth","name":"Cloud II","price":"$8.99/monthly"},{"code":7,"features":"4
+        vCPU / 8 GB Memory / 80 GB SSD Disk / 3000 GB Bandwidth","name":"Cloud III","price":"$17.99/monthly"},{"code":8,"features":"4
+        vCPU / 12 GB Memory / 120 GB SSD Disk / 4000 GB Bandwidth","name":"Cloud IV","price":"$26.99/monthly"}]}}'
+    http_version: 
+  recorded_at: Thu, 10 Dec 2020 16:41:27 GMT
+recorded_with: VCR 4.0.0
